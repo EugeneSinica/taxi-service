@@ -39,4 +39,3 @@ __STEPS TO LAUNCH THE APP:__
 1. Run the application and here we go.
 
 Enjoy the app ♥
-
