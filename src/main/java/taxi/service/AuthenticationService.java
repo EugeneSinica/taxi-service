@@ -1,6 +1,5 @@
 package taxi.service;
 
-
 import taxi.exception.AuthenticationException;
 import taxi.model.Driver;
 

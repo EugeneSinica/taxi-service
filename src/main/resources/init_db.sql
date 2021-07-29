@@ -46,6 +46,8 @@ DROP TABLE IF EXISTS `cars_drivers`;
 CREATE TABLE `cars_drivers`  (
                                  `car_id` bigint(0) UNSIGNED NOT NULL,
                                  `driver_id` bigint(0) UNSIGNED NOT NULL,
+                                 `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                 `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                                  PRIMARY KEY (`car_id`, `driver_id`) USING BTREE,
                                  INDEX `driver_id`(`driver_id`) USING BTREE,
                                  INDEX `car_id`(`car_id`) USING BTREE,

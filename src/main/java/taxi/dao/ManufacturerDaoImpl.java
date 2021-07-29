@@ -1,16 +1,19 @@
 package taxi.dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import taxi.exception.DataProcessingException;
-import taxi.util.ConnectionUtil;
 import taxi.lib.Dao;
 import taxi.model.Manufacturer;
+import taxi.util.ConnectionUtil;
 
 @Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
@@ -20,7 +23,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     public Manufacturer create(Manufacturer manufacturer) {
         String query = "INSERT INTO manufacturers (name, country) VALUES (?,?)";
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement preparedStatement
+                PreparedStatement preparedStatement
                         = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
             setUpdate(preparedStatement, manufacturer).executeUpdate();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
