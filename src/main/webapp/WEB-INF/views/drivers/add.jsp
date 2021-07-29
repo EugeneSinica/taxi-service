@@ -35,6 +35,7 @@
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/index">Back to main menu</a></td></tr>
 </table>
 </body>
 </html>
