@@ -20,7 +20,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (driver.isPresent() && driver.get().getPassword().equals(password)) {
             return driver.get();
         }
-        logger.error("Failed to log in with login - " + login + " password - " + password);
+        logger.error("Failed to log in with login - " + login);
         throw new AuthenticationException("Login or password are invalid");
     }
 }
