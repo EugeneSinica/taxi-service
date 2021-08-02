@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.impl;
 
 import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
@@ -7,6 +7,8 @@ import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.service.AuthenticationService;
+import taxi.service.DriverService;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -20,7 +22,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (driver.isPresent() && driver.get().getPassword().equals(password)) {
             return driver.get();
         }
-        logger.error("Failed to log in with login - " + login + " password - " + password);
+        logger.error("Failed to log in with login - " + login);
         throw new AuthenticationException("Login or password are invalid");
     }
 }
